@@ -1,0 +1,39 @@
+﻿<Page x:Class="KP.Views.AddEditTest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KP.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditTest">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Номер станка"/>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Дата"/><Run Language="ru-ru" Text=" проведения"/></TextBlock>
+        <TextBlock Grid.Row ="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Инспекор"/>
+
+        <ComboBox SelectedItem="{Binding Machine}" Grid.Column="1" x:Name="CmbMachine" DisplayMemberPath="Id" Margin="10,0,5,0"/>
+        <DatePicker SelectedDate ="{Binding DateOfTesting}" Grid.Column="1"  Margin="10,0,435,0" Grid.Row="1"  DisplayDateStart="01.01.2023" VerticalAlignment="Center" Name="DateOfTesting"/>
+        <ComboBox SelectedItem="{Binding UsersTable}" Grid.Row="2" Grid.Column="1" x:Name="CmbUsers" DisplayMemberPath="FullName" Margin="10,0,5,0"/>
+
+        <Button Grid.ColumnSpan="2" Grid.Row="3" Content="Сохранить" HorizontalAlignment="Center" Name="AddEdit" Click="AddEdit_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>
